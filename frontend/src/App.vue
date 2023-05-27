@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import AppView from './views/AppView.vue'
 import {
   NConfigProvider,
   NMessageProvider,
@@ -13,7 +13,7 @@ const themeOverrides: GlobalThemeOverrides = {
     primaryColor: '#a855f7', // Purple 500
     primaryColorHover: '#d8b4fe', // Purple 300
     primaryColorPressed: '#e9d5ff', // Purple 200
-    borderRadius: '0.4rem',
+    borderRadius: '0.4rem'
   }
 }
 </script>
@@ -22,7 +22,7 @@ const themeOverrides: GlobalThemeOverrides = {
   <n-config-provider :theme-overrides="themeOverrides" :theme="darkTheme">
     <NDialogProvider>
       <n-message-provider>
-        <RouterView />
+        <AppView></AppView>
       </n-message-provider>
     </NDialogProvider>
   </n-config-provider>
