@@ -3,10 +3,11 @@ import { ref, computed } from 'vue'
 import { RouterView, useRouter } from 'vue-router'
 import { NMenu, NLayout, NLayoutSider, type MenuOption } from 'naive-ui'
 import { renderIcon, routerLink } from '@/utils/naive'
+import { isMobile } from '@/utils/media'
 import DropdownIcon from '@/components/icons/DropdownIcon.vue'
 import DashboardIcon from '@/components/icons/DashboardIcon.vue'
+import ChatIcon from '@/components/icons/ChatIcon.vue'
 import SettingsIcon from '@/components/icons/SettingsIcon.vue'
-import { isMobile } from '@/utils/media'
 
 const router = useRouter()
 
@@ -34,6 +35,11 @@ const menuOptions: MenuOption[] = [
     label: () => routerLink({ name: 'dashboard' }, 'Dashboard'),
     key: 'dashboard',
     icon: renderIcon(DashboardIcon)
+  },
+  {
+    label: () => routerLink({ name: 'chat' }, 'Chat'),
+    key: 'chat',
+    icon: renderIcon(ChatIcon)
   },
   {
     label: () => routerLink({ name: 'settings' }, 'Settings'),
