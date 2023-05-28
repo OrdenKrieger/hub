@@ -80,8 +80,8 @@ const menuOptions: MenuOption[] = [
       />
     </n-layout-sider>
     <n-layout>
-      <div class="min-h-screen">
-        <RouterView />
+      <div class="grid min-h-screen p-6">
+        <div class="bg-slate-100 bg-opacity-5 rounded-2xl"><RouterView /></div>
       </div>
     </n-layout>
   </n-layout>
