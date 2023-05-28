@@ -54,7 +54,7 @@ const menuOptions: MenuOption[] = [
       </div>
       <n-layout v-if="showMobile" class="bg-gray-950">
         <n-menu
-          v-model:value="currentKey"
+          :value="currentKey"
           :collapsed-width="64"
           :collapsed-icon-size="22"
           :options="menuOptions"
@@ -72,7 +72,7 @@ const menuOptions: MenuOption[] = [
       @expand="collapsed = false"
     >
       <n-menu
-        v-model:value="currentKey"
+        :value="currentKey"
         :collapsed="collapsed"
         :collapsed-width="64"
         :collapsed-icon-size="22"
