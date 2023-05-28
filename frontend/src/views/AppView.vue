@@ -6,11 +6,10 @@ import { renderIcon, routerLink } from '@/utils/naive'
 import DropdownIcon from '@/components/icons/DropdownIcon.vue'
 import DashboardIcon from '@/components/icons/DashboardIcon.vue'
 import SettingsIcon from '@/components/icons/SettingsIcon.vue'
+import { isMobile } from '@/utils/media'
 
 const router = useRouter()
 
-// Todo mobile trigger
-const mobile = false
 const showMobile = ref(false)
 
 const showFullApp = computed(() => {
@@ -45,8 +44,8 @@ const menuOptions: MenuOption[] = [
 </script>
 
 <template>
-  <n-layout v-if="showFullApp" :has-sider="!mobile">
-    <div v-if="mobile" class="bg-gray-950">
+  <n-layout v-if="showFullApp" :has-sider="!isMobile">
+    <div v-if="isMobile" class="bg-gray-950">
       <div class="flex justify-end p-1.5 pr-2">
         <DropdownIcon
           @click="showMobile = !showMobile"
