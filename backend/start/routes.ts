@@ -14,16 +14,20 @@ import router from '@adonisjs/core/services/router'
 
 router
   .group(() => {
-    router.get('/:provider/redirect', [AuthController, 'redirect'])
-    router.get('/:provider/callback', [AuthController, 'callback'])
-  })
-  .prefix('auth')
-  .where('provider', /github/)
+    router
+      .group(() => {
+        router.get('/:provider/redirect', [AuthController, 'redirect'])
+        router.get('/:provider/callback', [AuthController, 'callback'])
+      })
+      .prefix('auth')
+      .where('provider', /github/)
 
-router
-  .group(() => {
-    router.get('user', async ({ auth }) => {
-      return { user: auth.getUserOrFail() }
-    })
+    router
+      .group(() => {
+        router.get('user', async ({ auth }) => {
+          return { user: auth.getUserOrFail() }
+        })
+      })
+      .use(middleware.auth())
   })
-  .use(middleware.auth())
+  .prefix('api')
