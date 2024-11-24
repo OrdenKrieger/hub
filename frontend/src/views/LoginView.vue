@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView />
+  <p>Huby login</p>
 </template>
