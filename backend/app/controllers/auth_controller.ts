@@ -3,7 +3,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 
 export default class AuthController {
   async redirect({ params, ally }: HttpContext) {
-    return ally.use(params.provider).redirect()
+    return ally.use(params.provider).redirectUrl()
   }
 
   async callback({ params, ally, auth }: HttpContext) {
