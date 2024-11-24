@@ -7,27 +7,13 @@
 |
 */
 
-const AuthController = () => import('#controllers/auth_controller')
-
-import { middleware } from '#start/kernel'
 import router from '@adonisjs/core/services/router'
+import { authenticationRoutes } from '#start/api/authentication'
+import { userRoutes } from '#start/api/user'
 
 router
   .group(() => {
-    router
-      .group(() => {
-        router.get('/:provider/redirect', [AuthController, 'redirect'])
-        router.get('/:provider/callback', [AuthController, 'callback'])
-      })
-      .prefix('auth')
-      .where('provider', /github/)
-
-    router
-      .group(() => {
-        router.get('user', async ({ auth }) => {
-          return { user: auth.getUserOrFail() }
-        })
-      })
-      .use(middleware.auth())
+    authenticationRoutes()
+    userRoutes()
   })
   .prefix('api')
