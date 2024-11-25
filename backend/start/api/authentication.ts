@@ -9,5 +9,5 @@ export const authenticationRoutes = () => {
       router.get('/:provider/callback', [AuthController, 'callback'])
     })
     .prefix('auth')
-    .where('provider', /github/)
+    .where('provider', /github|google/)
 }
