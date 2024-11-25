@@ -8,11 +8,11 @@ const API_URL = BASE_URL + API_BASE + API_VERSION
 
 // Supported auth routes
 export const AUTH_ROUTES = {
-  prefix: 'auth/',
+  prefix: 'auth',
   redirect: {
     method: 'get',
     route: (provider: 'github' | 'google' | 'facebook') => {
-      return `${API_URL}/${AUTH_ROUTES.prefix}/${provider}/redirect`
+      return `${API_URL}${AUTH_ROUTES.prefix}/${provider}/redirect`
     },
   },
 }
