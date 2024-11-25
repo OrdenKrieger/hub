@@ -1,12 +1,16 @@
 import User from '#models/user'
+import env from '#start/env'
+
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class AuthController {
+  static callbackRedirect = env.get('APP_FRONTEND_URL')
+
   async redirect({ params, ally }: HttpContext) {
     return ally.use(params.provider).redirectUrl()
   }
 
-  async callback({ params, ally, auth }: HttpContext) {
+  async callback({ params, ally, auth, response }: HttpContext) {
     const socialProvider = ally.use(params.provider)
 
     // User has denied access by canceling login flow
@@ -40,6 +44,6 @@ export default class AuthController {
     // Login user
     await auth.use('api').login(user)
 
-    return 'Succefull logged in'
+    response.redirect(AuthController.callbackRedirect)
   }
 }
