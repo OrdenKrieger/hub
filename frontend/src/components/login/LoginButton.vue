@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AUTH_ROUTES } from '@/api/routes'
-import type { AuthRedirectResp } from '@/api/types/auth'
+import type { IAuthRedirectResp } from '@/api/interfaces/auth'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import GithubIcon from '@/components/icons/GithubIcon.vue'
 import GoogleIcon from '@/components/icons/GoogleIcon.vue'
@@ -12,7 +12,7 @@ const props = defineProps<{
   provider: 'github' | 'google' | 'facebook'
 }>()
 
-const fetcher = async (): Promise<AuthRedirectResp> =>
+const fetcher = async (): Promise<IAuthRedirectResp> =>
   await axios({
     method: AUTH_ROUTES.redirect.method,
     url: AUTH_ROUTES.redirect.route(props.provider),
