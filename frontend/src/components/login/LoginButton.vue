@@ -4,10 +4,9 @@ import type { AuthRedirectResp } from '@/api/types/auth'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import GithubIcon from '@/components/icons/GithubIcon.vue'
 import GoogleIcon from '@/components/icons/GoogleIcon.vue'
-import router from '@/router'
 import { firstToUpperCase } from '@/utils/text'
 import axios from 'axios'
-import { useQuery } from 'vue-query'
+import { useQuery } from '@tanstack/vue-query'
 
 const props = defineProps<{
   provider: 'github' | 'google' | 'facebook'
@@ -19,10 +18,15 @@ const fetcher = async (): Promise<AuthRedirectResp> =>
     url: AUTH_ROUTES.redirect.route(props.provider),
   }).then((response) => response.data)
 
-const { isLoading, isError, data } = useQuery(`loginRedirect${props.provider}`, fetcher)
+const { isLoading, isError, data } = useQuery({
+  queryKey: ['loginRedirect', props.provider],
+  queryFn: fetcher,
+})
 
 function redirect() {
-  window.location.replace(data.value)
+  if (data.value) {
+    window.location.replace(data.value.redirect)
+  }
 }
 </script>
 
