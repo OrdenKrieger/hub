@@ -7,11 +7,11 @@ export default class AuthController {
   static callbackRedirect = env.get('APP_FRONTEND_URL')
 
   async redirect({ params, ally }: HttpContext) {
-    return ally.use(params.provider).redirectUrl()
+    return { redirect: await ally.use(params.provider).redirectUrl() }
   }
 
   async callback({ params, ally, auth, response }: HttpContext) {
-    const socialProvider = ally.use(params.provider)
+    const socialProvider = await ally.use(params.provider)
 
     // User has denied access by canceling login flow
     if (socialProvider.accessDenied()) {
