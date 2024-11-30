@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 
 export default class User extends BaseModel {
-  @column({ isPrimary: true })
+  @column({ isPrimary: true, serializeAs: null })
   declare id: number
 
   @column()
@@ -14,9 +14,9 @@ export default class User extends BaseModel {
   @column()
   declare email: string
 
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, serializeAs: null })
   declare createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: true, serializeAs: null })
   declare updatedAt: DateTime | null
 }
