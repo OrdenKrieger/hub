@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
+import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import Role from '#models/role'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true, serializeAs: null })
@@ -19,4 +21,10 @@ export default class User extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true, serializeAs: null })
   declare updatedAt: DateTime | null
+
+  @column()
+  declare roleId: number // The role_id column in the users table
+
+  @belongsTo(() => Role)
+  declare role: BelongsTo<typeof Role>
 }

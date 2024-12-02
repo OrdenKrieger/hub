@@ -1,1 +1,4 @@
-## This project is WIP and to be enjoyed with caution
+```bash
+node ace migration:run
+node ace db:seed
+```
