@@ -1,15 +1,21 @@
 <script setup lang="ts">
-import DashboardIcon from '@/components/icons/DashboardIcon.vue'
-import SettingsIcon from '@/components/icons/SettingsIcon.vue'
 import type { INavbarItem } from '@/components/navbar/types'
 import Navbar from './components/navbar/Navbar.vue'
 import { isMobile } from '@/utils/media'
+import DashboardIcon from '@/components/icons/DashboardIcon.vue'
+import FilesIcon from '@/components/icons/FilesIcon.vue'
+import SettingsIcon from '@/components/icons/SettingsIcon.vue'
 
 const navbarElemnts: INavbarItem[] = [
   {
     title: 'Home',
     routeName: 'home',
     icon: DashboardIcon,
+  },
+  {
+    title: 'Dateien',
+    routeName: 'files',
+    icon: FilesIcon,
   },
   {
     title: 'Einstellungen',
