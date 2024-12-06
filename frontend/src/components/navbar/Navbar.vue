@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
-import DashboardIcon from '@/components/icons/DashboardIcon.vue'
 import MenuIcon from '@/components/icons/MenuIcon.vue'
-import SettingsIcon from '@/components/icons/SettingsIcon.vue'
 import NavbarItem from '@/components/navbar/NavbarItem.vue'
 import type { INavbarItem } from '@/components/navbar/types'
 import { ref } from 'vue'
