@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { INavbarItem } from '@/components/navbar/types'
-import Navbar from './components/navbar/Navbar.vue'
+import AppNavbar from '@/components/navbar/AppNavbar.vue'
 import { isMobile } from '@/utils/media'
 import DashboardIcon from '@/components/icons/DashboardIcon.vue'
 import FilesIcon from '@/components/icons/FilesIcon.vue'
@@ -27,7 +27,7 @@ const navbarElemnts: INavbarItem[] = [
 
 <template>
   <div class="flex w-full" :class="isMobile ? 'flex-col' : 'flex-row'">
-    <Navbar :type="isMobile ? 'mobile' : 'desktop'" :elements="navbarElemnts" />
+    <AppNavbar :type="isMobile ? 'mobile' : 'desktop'" :elements="navbarElemnts" />
     <div class="flex w-full" :class="isMobile ? 'p-2' : 'py-5 pr-5'">
       <div class="rounded-2xl bg-surface-900 w-full">
         <RouterView />

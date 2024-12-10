@@ -7,7 +7,7 @@ import { ref } from 'vue'
 
 const expanded = ref(false)
 
-const props = defineProps<{
+defineProps<{
   type: 'desktop' | 'mobile'
   elements: INavbarItem[]
 }>()
@@ -30,6 +30,8 @@ const props = defineProps<{
           >
           <NavbarItem
             v-for="item in elements"
+            :key="item.title"
+            v-tooltip="expanded ? '' : item.title"
             :title="item.title"
             :route-name="item.routeName"
             :expanded="expanded"
@@ -61,6 +63,7 @@ const props = defineProps<{
       <div v-if="expanded" class="flex flex-col mt-2 gap-1">
         <NavbarItem
           v-for="item in elements"
+          :key="item.title"
           :title="item.title"
           :route-name="item.routeName"
           :expanded="expanded"

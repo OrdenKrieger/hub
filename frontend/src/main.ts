@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
+import Tooltip from 'primevue/tooltip'
 
 import App from '@/App.vue'
 import router from '@/router'
@@ -18,6 +19,7 @@ app.use(PrimeVue, {
     preset: Aura,
   },
 })
+app.directive('tooltip', Tooltip)
 
 const meta = document.createElement('meta')
 meta.name = 'naive-ui-style'
