@@ -31,7 +31,7 @@ defineProps<{
           <NavbarItem
             v-for="item in elements"
             :key="item.title"
-            v-tooltip="expanded ? '' : {value: item.title, showDelay: 250}"
+            v-tooltip="expanded ? '' : { value: item.title, showDelay: 250 }"
             :title="item.title"
             :route-name="item.routeName"
             :expanded="expanded"

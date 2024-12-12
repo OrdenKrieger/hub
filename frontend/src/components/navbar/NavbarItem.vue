@@ -26,13 +26,13 @@ function pushTo() {
     :class="{ 'bg-surface-900 dark:bg-surface-200': currentKey }"
   >
     <component
-      class="h-8 fill-surface-700 dark:fill-surface-200 dark:group-hover:fill-surface-700 group-hover:fill-surface-200"
-      :class="{ 'fill-surface-200 dark:fill-surface-700': currentKey }"
+      class="h-8 fill-surface-700 dark:fill-surface-200 dark:group-hover:fill-surface-700 group-hover:fill-surface-200 pointer-events-none"
+      :class="{ 'fill-surface-100 dark:fill-surface-700': currentKey }"
       :is="icon"
     ></component>
     <span
       class="text-surface-700 dark:text-surface-200 font-bold dark:group-hover:text-surface-700 group-hover:text-surface-200"
-      :class="{ 'text-surface-200 dark:text-surface-700': currentKey }"
+      :class="{ 'text-surface-100 dark:text-surface-700': currentKey }"
       v-if="expanded"
       >{{ title }}</span
     >
